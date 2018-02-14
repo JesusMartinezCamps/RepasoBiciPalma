@@ -10,17 +10,14 @@ public class Estacion {
 	private int id = 0;
 	private String direccion = "";
 	private int numeroAnclajes = 0;
-	private int anclajesLibres = 0;
-	private ArrayList<Bicicleta> anclajes = new ArrayList<Bicicleta>();
+	private Bicicleta[] anclajes;
 	
 	//constructor
 	public Estacion(int id, String direccion, int numeroAnclaje) {
 		this.id = id;
 		this.direccion = direccion;
 		this.numeroAnclajes = numeroAnclaje;
-		this.anclajesLibres = numeroAnclaje;
-		this.anclajes.ensureCapacity(numeroAnclaje);
-		System.out.println("tamaño " + anclajes.size());
+		this.anclajes =  new Bicicleta[numeroAnclajes];
 	}
 
 	//getters & setters
@@ -33,15 +30,19 @@ public class Estacion {
 	public int getNumeroAnclajes() {
 		return this.numeroAnclajes;
 	}
-	public int getAnclajesLibres() {
-		return this.anclajesLibres;
-	}
-	public void anclarBici() {
-		anclajesLibres = anclajesLibres -1;
-	}
-	public ArrayList<Bicicleta> getAnclajes(){
+	public Bicicleta[] getAnclajes(){
 		return anclajes;
 	}
+	public int getAnclajesLibres() {
+		int libres = 0;
+		
+		for (int i = 0; i < getAnclajes().length; i++) {
+			if(getAnclajes()[i] == null)
+				libres ++;
+		}
+		return libres;
+	}
+	
 	
 	//methods
 	public void consultarEstacion() {
@@ -59,21 +60,28 @@ public class Estacion {
 	}
 
 	public void anclarBicicleta(Bicicleta bicicleta) {		
-		//for (int i = 0; i < getNumeroAnclajes(); i++) {
-			getAnclajes().add(bicicleta);
-			anclarBici();
-			mostrarAnclaje(bicicleta, getAnclajes().size());
-		//}
+		for (int i = 0; i < getAnclajes().length; i++) {
+			if(getAnclajes()[i] == null) {
+				getAnclajes()[i] = bicicleta;
+				mostrarAnclaje(bicicleta, i);
+				break;
+			}
+		}
 	}
 
 	private void mostrarAnclaje(Bicicleta bicicleta, int numeroAnclaje) {
-		System.out.println("bicicleta: " + bicicleta.getId() + " anclada en el anclaje: " + numeroAnclaje);		
+		System.out.println("bicicleta: " + bicicleta.getId() + " anclada en el anclaje: " + (numeroAnclaje + 1));		
 	}
 
 	public void consultarAnclajes() {
-		System.out.println("tamaño " + getAnclajes().size());
-		for (int i = 0; i < getAnclajes().size(); i++) {
-			//System.out.println("Anclaje " + i + " " + getAnclajes().get(1));
+		for (int i = 0; i < getAnclajes().length; i++) {
+			String estadoAnclaje = "";
+			if(getAnclajes()[i] == null)
+				estadoAnclaje = "Libre";
+			else
+				estadoAnclaje = Integer.toString(getAnclajes()[i].getId());
+			
+			System.out.println("Anclaje " + i + " " + estadoAnclaje);
 		}
 		
 	}
