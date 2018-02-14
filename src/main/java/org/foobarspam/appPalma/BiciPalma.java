@@ -56,10 +56,10 @@ public class BiciPalma {
 		
 		System.out.println("¿tarjeta de usuario activada? (true/false): " + estacion.leerTarjetaUsuario(tarjetaUsuario) );
 		
-		//estacion.retirarBicicleta(tarjetaUsuario);
+		estacion.retirarBicicleta(tarjetaUsuario);
 		
-		//estacion.consultarAnclajes();
+		estacion.consultarAnclajes();
 		
-		//System.out.println("anclajesLibres: " + estacion.anclajesLibres());
+		System.out.println("anclajesLibres: " + estacion.anclajesLibres());
 	}
 }

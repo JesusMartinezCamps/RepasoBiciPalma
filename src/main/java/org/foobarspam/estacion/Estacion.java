@@ -70,10 +70,6 @@ public class Estacion {
 		}
 	}
 
-	private void mostrarAnclaje(Bicicleta bicicleta, int numeroAnclaje) {
-		System.out.println("bicicleta: " + bicicleta.getId() + " anclada en el anclaje: " + (numeroAnclaje + 1));		
-	}
-
 	public void consultarAnclajes() {
 		for (int i = 0; i < getAnclajes().length; i++) {
 			String estadoAnclaje = "";
@@ -89,5 +85,29 @@ public class Estacion {
 
 	public Boolean leerTarjetaUsuario(TarjetaUsuario tarjetaUsuario) {	
 		return tarjetaUsuario.getActivada();
+	}
+
+	public void retirarBicicleta(TarjetaUsuario tarjetaUsuario) {
+		int anclajeRandom = 0;
+		if(tarjetaUsuario.getActivada()) {
+			anclajeRandom = ThreadLocalRandom.current().nextInt(0, getAnclajes().length);
+			
+			while(getAnclajes()[anclajeRandom] == null)
+				anclajeRandom = ThreadLocalRandom.current().nextInt(0, getAnclajes().length);
+			
+			mostrarBicicleta(getAnclajes()[anclajeRandom], anclajeRandom);
+			getAnclajes()[anclajeRandom] = null;
+			
+		}
+	}
+
+	//helpers
+	private void mostrarBicicleta(Bicicleta bicicleta, int anclajeRandom) {
+		System.out.println("bicicleta retirada: " + bicicleta.getId() + " del anclaje: " + (anclajeRandom + 1));
+		
+	}
+	
+	private void mostrarAnclaje(Bicicleta bicicleta, int numeroAnclaje) {
+		System.out.println("bicicleta: " + bicicleta.getId() + " anclada en el anclaje: " + (numeroAnclaje + 1));		
 	}
 }
