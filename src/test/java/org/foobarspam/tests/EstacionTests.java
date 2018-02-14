@@ -17,23 +17,26 @@ public class EstacionTests {
 	
 	@Test
 	public void getIdTest() {
-		int id = 1;
-		
+		int id = 1;		
 		assertEquals(id, estacion.getId());
 	}
 	
 	@Test
 	public void getAnclajesTest() {
-		int anclajes = 6;
-		
+		int anclajes = 6;		
 		assertEquals(anclajes, estacion.getNumeroAnclajes());
 	}
 	
 	@Test
 	public void getDireccionTest() {
-		String direccion = "Manacor";
-		
+		String direccion = "Manacor";		
 		assertEquals(direccion, estacion.getDireccion());
+	}
+	
+	@Test
+	public void getAnclajesLibresTest() {
+		int anclajesLibres = 6;		
+		assertEquals(anclajesLibres, estacion.getAnclajesLibres());
 	}
 
 }

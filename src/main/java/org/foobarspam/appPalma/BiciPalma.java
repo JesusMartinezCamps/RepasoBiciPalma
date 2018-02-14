@@ -22,7 +22,7 @@ public class BiciPalma {
 		
 		System.out.println("\n **** caso TEST visualizar anclajes libres **** \n");
 		
-		//System.out.println("anclajesLibres: " + estacion.anclajesLibres());
+		System.out.println("anclajesLibres: " + estacion.anclajesLibres());
 
 		/* caso TEST anclar bicicleta(s) */
 
@@ -30,24 +30,23 @@ public class BiciPalma {
 		
 		int[] bicicletas = {291, 292, 293, 294};
 		
-		/* // generar anclaje random 
+		// generar anclaje random 
 		for (int i: bicicletas){
-			System.out.println( estacion.generarAnclaje());
+			System.out.println(estacion.generarAnclaje());
 		}
-		*/
 		
-		/*for ( int id: bicicletas ){
+		for ( int id: bicicletas ){
 			Bicicleta bicicleta = new Bicicleta(id);
 			estacion.anclarBicicleta(bicicleta);
-		}*/
+		}
 
-		//System.out.println("anclajesLibres tras generar "+ bicicletas.length + " bicis: " + estacion.anclajesLibres());
+		System.out.println("anclajesLibres tras generar "+ bicicletas.length + " bicis: " + estacion.anclajesLibres());
 		
 		/* caso TEST consultar bicicletas ancladas */
 		
 		System.out.println("\n **** caso TEST consultar bicicletas ancladas **** \n");
 		
-		//estacion.consultarAnclajes();
+		estacion.consultarAnclajes();
 		
 		/* caso TEST retirar bicicleta */
 		
