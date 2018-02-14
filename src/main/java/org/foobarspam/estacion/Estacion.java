@@ -78,7 +78,7 @@ public class Estacion {
 			else
 				estadoAnclaje = Integer.toString(getAnclajes()[i].getId());
 			
-			System.out.println("Anclaje " + i + " " + estadoAnclaje);
+			System.out.println("Anclaje " + (i + 1) + " " + estadoAnclaje);
 		}
 		
 	}
@@ -96,8 +96,7 @@ public class Estacion {
 				anclajeRandom = ThreadLocalRandom.current().nextInt(0, getAnclajes().length);
 			
 			mostrarBicicleta(getAnclajes()[anclajeRandom], anclajeRandom);
-			getAnclajes()[anclajeRandom] = null;
-			
+			getAnclajes()[anclajeRandom] = null;			
 		}
 	}
 
