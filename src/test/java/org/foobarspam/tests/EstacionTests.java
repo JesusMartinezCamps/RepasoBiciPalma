@@ -3,6 +3,7 @@ package org.foobarspam.tests;
 import static org.junit.Assert.*;
 
 import org.foobarspam.estacion.Estacion;
+import org.foobarspam.tarjetaUsuario.TarjetaUsuario;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -38,5 +39,15 @@ public class EstacionTests {
 		int anclajesLibres = 6;		
 		assertEquals(anclajesLibres, estacion.getAnclajesLibres());
 	}
+	
+	@Test
+	public void leerTarjetaUsuarioTest() {
+		TarjetaUsuario tarjetaUsuario = new TarjetaUsuario("000456789", true);
+		
+		Boolean estadoUsuario = estacion.leerTarjetaUsuario(tarjetaUsuario);
+		
+		assertEquals(true, estadoUsuario);
+	}
+	
 
 }

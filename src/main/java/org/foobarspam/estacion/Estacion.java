@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 import org.foobarspam.bicicleta.Bicicleta;
+import org.foobarspam.tarjetaUsuario.TarjetaUsuario;
 
 public class Estacion {
 	//attributes
@@ -84,5 +85,9 @@ public class Estacion {
 			System.out.println("Anclaje " + i + " " + estadoAnclaje);
 		}
 		
+	}
+
+	public Boolean leerTarjetaUsuario(TarjetaUsuario tarjetaUsuario) {	
+		return tarjetaUsuario.getActivada();
 	}
 }
